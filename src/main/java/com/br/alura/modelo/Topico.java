@@ -1,18 +1,29 @@
 package com.br.alura.modelo;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Topico {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String titulo;
 	private String mensagem;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
+
+	@Enumerated
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
+	@ManyToMany
 	private Usuario autor;
+	@ManyToMany
 	private Curso curso;
+	@ManyToMany
 	private List<Resposta> respostas = new ArrayList<>();
 
 	public Topico(String titulo, String mensagem, Curso curso) {
