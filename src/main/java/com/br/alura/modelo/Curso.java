@@ -1,7 +1,15 @@
 package com.br.alura.modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Curso {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String categoria;
@@ -10,7 +18,11 @@ public class Curso {
 		this.nome = nome;
 		this.categoria = categoria;
 	}
-	
+
+	public Curso() {
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -37,26 +49,32 @@ public class Curso {
 	}
 
 	public Long getId() {
+
 		return id;
 	}
 
 	public void setId(Long id) {
+
 		this.id = id;
 	}
 
 	public String getNome() {
+
 		return nome;
 	}
 
 	public void setNome(String nome) {
+
 		this.nome = nome;
 	}
 
 	public String getCategoria() {
+
 		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
+
 		this.categoria = categoria;
 	}
 

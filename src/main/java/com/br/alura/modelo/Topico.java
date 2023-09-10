@@ -19,14 +19,19 @@ public class Topico {
 
 	@Enumerated
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
-	@ManyToMany
+	@ManyToOne
 	private Usuario autor;
-	@ManyToMany
+	@ManyToOne
 	private Curso curso;
-	@ManyToMany
+	@ManyToMany(mappedBy = "topico")
 	private List<Resposta> respostas = new ArrayList<>();
 
+	public Topico() {
+
+	}
+
 	public Topico(String titulo, String mensagem, Curso curso) {
+		super();
 		this.titulo = titulo;
 		this.mensagem = mensagem;
 		this.curso = curso;
